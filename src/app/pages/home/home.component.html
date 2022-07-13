@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="subtitulo ion-text-wrap">
+      Turismo App
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon color="warning" slot="icon-only" name="menu-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button  [routerLink]="['/favoritos']">
+        <ion-icon color="warning" slot="icon-only" name="heart-outline"></ion-icon>
+      </ion-button>
+      <ion-button  [routerLink]="['/perfil']">
+        <ion-icon color="warning" slot="icon-only" name="person-circle-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let sitio of sitios">
+
+    <app-sitioturistico [sitioturistico]=sitio></app-sitioturistico>
+  </div>
+</ion-content>

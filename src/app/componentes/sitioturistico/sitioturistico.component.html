@@ -1,0 +1,13 @@
+
+<ion-card style="position: relative">
+
+  <ion-img class="img-sitio" [src]="sitioturistico.imagen"></ion-img>
+  <ion-item lines="full">
+    <ion-label class="subtitulo">{{sitioturistico.nombre}}</ion-label>
+  </ion-item>
+  <p class="normal">{{sitioturistico.descripcion}}</p>
+  
+    <ion-icon (click)="addFavoritos()" class="encanta" name="heart-sharp"></ion-icon>
+  
+  
+</ion-card>
