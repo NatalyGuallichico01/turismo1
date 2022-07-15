@@ -44,6 +44,11 @@ export class AppComponent {
     });
   }
 }
+
+
+//WhFr0iuCLKherG2IN4PkJ4Mukrh1
+
+
 //match /SitiosTuristicos/{documents=**}{
   //allow read;
   //allow write: if request.auth.uid=='XOxofanwkidld5mNdbkajc2M0nu2'

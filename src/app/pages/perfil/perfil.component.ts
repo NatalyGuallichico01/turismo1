@@ -22,6 +22,7 @@ export class PerfilComponent implements OnInit {
     referencia: '',
     ubicacion: null,
     nombre: '',
+    rol: '',
   };
 
   newFile: any;
@@ -61,6 +62,7 @@ export class PerfilComponent implements OnInit {
           referencia: '',
           ubicacion: null,
           nombre: '',
+          rol: ' ',
         };
         console.log(this.cliente);
   }
@@ -106,7 +108,7 @@ export class PerfilComponent implements OnInit {
       const res = await this.firestorageService.uploadImage(this.newFile, path, name);
       this.cliente.foto = res;
     }
-    this.firestoreService.createDoc(this.cliente, path, this.cliente.uid).then(() => {
+    this.firestoreService.createDoc(this.cliente, path, this.cliente.uid).then(res => {
       //this.loading.dismiss();
       console.log('guardado con exito');
     }).catch(error => {
@@ -138,7 +140,7 @@ export class PerfilComponent implements OnInit {
     });
   }
 
-  async addDirection(){
+  /* async addDirection(){
     const ubicacion=this.cliente.ubicacion;
     let positionInput = {
       lat: -0.33405,
@@ -160,7 +162,7 @@ export class PerfilComponent implements OnInit {
       this.cliente.ubicacion=data.pos;
       console.log('this.cliente -> ', this.cliente);
     }
-  }
+  } */
 
 
 }

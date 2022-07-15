@@ -8,14 +8,18 @@ import { FormsModule } from '@angular/forms';
 import { ComponentesModule } from '../componentes/componentes.module';
 import { FavoritosComponent } from './favoritos/favoritos.component';
 import { GooglemapsModule } from '../googlemaps/googlemaps.module';
-
-
+import { RegistrarsitiosturisticosComponent } from './registrarsitiosturisticos/registrarsitiosturisticos.component';
+import { VisitarsitiosturisticosComponent } from './visitarsitiosturisticos/visitarsitiosturisticos.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
     HomeComponent,
     PerfilComponent,
     FavoritosComponent,
+    RegistrarsitiosturisticosComponent,
+    VisitarsitiosturisticosComponent,
+
   ],
   imports: [
     CommonModule,
@@ -23,7 +27,8 @@ import { GooglemapsModule } from '../googlemaps/googlemaps.module';
     RouterModule,
     FormsModule,
     ComponentesModule,
-    GooglemapsModule
+    GooglemapsModule,
+    SharedModule
   ]
 })
 export class PagesModule { }

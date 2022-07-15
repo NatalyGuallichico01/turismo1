@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="subtitulo ion-text-wrap">
+      Registro Sitios Turísticos
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon color="warning" slot="icon-only" name="menu-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/favoritos']">
+        <ion-icon color="warning" slot="icon-only" name="heart-outline"></ion-icon>
+      </ion-button>
+      <ion-button [routerLink]="['/perfil']">
+        <ion-icon color="warning" slot="icon-only" name="person-circle-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!--
+  <h3 class="subtitulo encabezado">Ingresa los datos del Sitio Turístico</h3>
+  <ion-item>
+    <ion-label class="normal" position="floating">
+      Nombre:
+    </ion-label>
+    <ion-input name="nombre" [(ngModel)]="place.nombre" class="normal" type="text" inputmode="text"></ion-input>
+  </ion-item>
+
+  <ion-label class="normal" position="floating">
+    Descripción:
+  </ion-label>
+  <ion-input name="nombre" [(ngModel)]="place.description" class="normal" type="text" inputmode="text"></ion-input>
+  </ion-item>
+  <ion-select placeholder="Seleccione alguna categoría" formControlName="type" (ionChange)="handleChange($event)"
+    (ionCancel)="pushLog('ionCancel fired')" (ionDismiss)="pushLog('ionDismiss fired')">
+    <ion-select-option value="Iglesias">Iglesias</ion-select-option>
+    <ion-select-option value="Parques">Parques</ion-select-option>
+    <ion-select-option value="Restaurantes">Restaurantes</ion-select-option>
+    <ion-select-option value="Miradores">Miradores</ion-select-option>
+  </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label class="normal" position="floating">
+      Seleccionar Ubicación:
+    </ion-label>
+    <ion-buttons slot="end">
+      <ion-button (click)="addUbication()">
+        <ion-icon slot="icon-only" color="danger" name="location"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+  <div style="text-align: end; margin: 10px;">
+    <ion-button (click)="guardarUser()" class="normal" color="success">Guardar</ion-button>
+  </div>
+  </ion-content>
+-->
+
+
+
+  
+<!--<form [formGroup]="credentialForm">-->
+
+  
+    
+    <ion-item>
+      <ion-label class="normal" position="floating">
+      Nombre:
+    </ion-label>
+      <ion-input [(ngModel)]="place.nombreS" autofocus="true" clearInput="true" class="normal" type="text" inputmode="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="normal" position="floating">
+    Descripción:
+  </ion-label>
+      <ion-input [(ngModel)]="place.descripcionS" clearInput="true" class="normal" type="text" inputmode="text"></ion-input>
+    </ion-item>
+    
+    <ion-list>
+      <ion-item class="normal">
+        <ion-label class="normal">Seleccione una categoría:</ion-label>
+        <ion-select class="normal" [(ngModel)]="place.categoriaS">
+          <ion-select-option value="Iglesias">Iglesias</ion-select-option>
+          <ion-select-option value="Parques">Parques</ion-select-option>
+          <ion-select-option value="Miradores">Miradores</ion-select-option>
+          <ion-select-option value="Haciendas">Haciendas</ion-select-option>
+          <ion-select-option value="Cascadas">Cascadas</ion-select-option>
+          <ion-select-option value="Restaurantes">Restaurantes</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-item>
+      <ion-label class="normal" position="floating">
+      Seleccionar Ubicación:
+    </ion-label>
+    <ion-input [(ngModel)]="place.categoriaS" class="normal" type="text" inputmode="text"></ion-input>
+      <ion-buttons slot="end">
+        <ion-button (click)="addDirection()">
+          <ion-icon slot="icon-only" color="danger" name="location"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <!--</form>-->
+
+  <div style="text-align: end; margin: 10px;">
+    <ion-button (click)="savePlace()" class="normal" color="success">Guardar</ion-button>
+  </div>
+</ion-content>

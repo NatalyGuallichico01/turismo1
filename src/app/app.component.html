@@ -4,7 +4,7 @@
     <ion-menu contentId="main" menuId="principal">
       <ion-header>
         <ion-toolbar>
-          <ion-title class="subtitulo">Menu</ion-title>
+          <ion-title class="subtitulo">Menú</ion-title>
         </ion-toolbar>
       </ion-header>
       <ion-content>
@@ -33,6 +33,22 @@
           <ion-item button="true" detail="true"  [routerLink]="['/favoritos-general']">
             <ion-label class="normal">Favoritos</ion-label>
             <ion-icon slot= 'start' name="heart-outline"></ion-icon>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide="false">
+          <ion-item button="true" detail="true"  [routerLink]="['/registrar-sitiosturisticos']">
+            <ion-label class="normal">Registrar Sitios Turísticos</ion-label>
+            <ion-icon slot= 'start' name="sunny-outline"></ion-icon>
+           
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide="false">
+          <ion-item button="true" detail="true"  [routerLink]="['/visitar-sitiosturisticos']">
+            <ion-label class="normal">Visitar Sitios Turísticos</ion-label>
+            <ion-icon slot= 'start' name="accessibility-outline"></ion-icon>
+           
           </ion-item>
         </ion-menu-toggle>
         

@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="subtitulo ion-text-wrap">
+      Que te gustaría visitar?
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon color="warning" slot="icon-only" name="menu-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button  [routerLink]="['/favoritos']">
+        <ion-icon color="warning" slot="icon-only" name="heart-outline"></ion-icon>
+      </ion-button>
+      <ion-button  [routerLink]="['/perfil']">
+        <ion-icon color="warning" slot="icon-only" name="person-circle-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1 class="titulo">Pueblos Mágicos Rumiñahui-Ecuador</h1>
+
+  <ion-item>
+    <ion-img class="imagen" src="https://i.postimg.cc/GmH5rsZr/rumi-ahui.jpg"></ion-img>
+</ion-item>
+
+  <ion-item >
+    <label class="normal">Sitio que le gustaría visitar</label>
+    <ion-select class="normal" (ionChange)="handleChange($event)"
+    [(ngModel)]="categoryPlace"
+  
+    (ionCancel)="pushLog('ionCancel fired')"
+    (ionDismiss)="pushLog('ionDismiss fired')">
+      <ion-select-option  value="Iglesias" >Iglesias</ion-select-option>
+      <ion-select-option  value="Parques" >Parques</ion-select-option>
+      <ion-select-option  value="Restaurantes" >Restaurantes</ion-select-option>
+      <ion-select-option  value="Miradores" >Miradores</ion-select-option>
+      <ion-select-option value="Haciendas" >Haciendas</ion-select-option>
+      <ion-select-option value="Cascadas" >Cascadas</ion-select-option>
+      <ion-select-option  value="Todo">Todo</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+
+   <ion-button (click)="getPlaces()">
+    <ion-icon name="search-outline"></ion-icon>
+  </ion-button> 
+
+  <ion-card *ngFor="let place of (places | categoria: categoryPlace)">
+    <ion-card-header>
+      <ion-card-subtitle> Categoría: {{place.categoriaS}}</ion-card-subtitle>
+      <ion-card-title> {{place.nombreS}} </ion-card-title>
+    </ion-card-header>
+    <ion-card-content> {{place.descripcionS}} </ion-card-content>
+    <ion-button (click)="openMap(place.ubicacionS)" color="light">
+      <ion-icon name="location"></ion-icon>
+      Ver ubicación
+    </ion-button>
+  </ion-card>
+  
+</ion-content>

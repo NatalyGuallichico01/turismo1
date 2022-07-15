@@ -16,6 +16,7 @@ import { AngularFireStorageModule} from '@angular/fire/compat/storage';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { SharedModule } from './shared/shared.module';
 
 
 
@@ -30,6 +31,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
+    SharedModule,
   ],
 
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

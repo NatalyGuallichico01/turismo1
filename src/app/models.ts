@@ -17,6 +17,7 @@ export interface Cliente{
         lng: number;
     };
     nombre: string;
+    rol: string;
 }
 export interface Favoritos{
     id: string;
@@ -30,5 +31,23 @@ export interface SitiosFavoritos{
     sitio: SitioTuristico;
     visitas: number;
 }
+
+export interface Place {
+    idS: string;
+    nombreS: string;
+    descripcionS: string;
+    tipoS: '';
+    ubicacionS: {
+      lat: number;
+      lng: number;
+    };
+    categoriaS: string;
+    fecha: Date;
+    referirS: string;
+  }
+
+  export interface TiposSitios{
+    nombre: string;
+  }
 
 export type EstadoFavorito= 'me gusta' | 'no me gusta';

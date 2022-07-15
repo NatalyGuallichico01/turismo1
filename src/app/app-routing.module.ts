@@ -7,6 +7,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { PerfilComponent} from './pages/perfil/perfil.component';
 import { canActivate} from '@angular/fire/compat/auth-guard';
 import { map } from 'rxjs/operators';
+import { RegistrarsitiosturisticosComponent } from './pages/registrarsitiosturisticos/registrarsitiosturisticos.component';
+import { VisitarsitiosturisticosComponent } from './pages/visitarsitiosturisticos/visitarsitiosturisticos.component';
 
 
 const isAdmin= (next: any)=> map((user: any)=>!!user && 'WhFr0iuCLKherG2IN4PkJ4Mukrh1'===user.uid);
@@ -16,6 +18,8 @@ const routes: Routes = [
   {path: 'set-sitiosturisticos', component:SetSitiosturisticosComponent, ...canActivate(isAdmin)},
   {path: 'favoritos', component: FavoritosComponent},
   {path: 'perfil', component: PerfilComponent},
+  {path: 'registrar-sitiosturisticos', component: RegistrarsitiosturisticosComponent},
+  {path: 'visitar-sitiosturisticos', component: VisitarsitiosturisticosComponent},
   {path: '', component:HomeComponent},
   {path: '**', redirectTo: 'home', pathMatch: 'full'},
 ];

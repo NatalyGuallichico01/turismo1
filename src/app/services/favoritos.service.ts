@@ -23,6 +23,7 @@ export class FavoritosService {
   constructor(public firebaseauthService: FirebaseauthService,
     public firestoreService: FirestoreService,
     public router: Router) {
+      console.log('Favoritos Inicio');
     this.firebaseauthService.stateAuth().subscribe(res => {
       console.log(res);
       if (res !== null) {
