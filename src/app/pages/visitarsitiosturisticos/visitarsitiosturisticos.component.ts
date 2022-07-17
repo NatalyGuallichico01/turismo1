@@ -134,12 +134,6 @@ export class VisitarsitiosturisticosComponent implements OnInit {
   }
  */
 
-
-  //ESTO ES PRUEBA
-
-
-
-
   openMenu() {
     console.log('open menu');
     this.menucontroler.toggle('principal');

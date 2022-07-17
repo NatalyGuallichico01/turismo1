@@ -46,18 +46,18 @@
   </ion-item>
 
 
-   <ion-button (click)="getPlaces()">
-    <ion-icon name="search-outline"></ion-icon>
+   <ion-button color="success" (click)="getPlaces()">
+    <ion-icon color="light" slot="end"  name="search-outline"></ion-icon>
   </ion-button> 
 
   <ion-card *ngFor="let place of (places | categoria: categoryPlace)">
     <ion-card-header>
-      <ion-card-subtitle> Categoría: {{place.categoriaS}}</ion-card-subtitle>
-      <ion-card-title> {{place.nombreS}} </ion-card-title>
+      <ion-card-subtitle class="subtitulo"> Categoría: {{place.categoriaS}}</ion-card-subtitle>
+      <ion-card-title color="success"> {{place.nombreS}} </ion-card-title>
     </ion-card-header>
-    <ion-card-content> {{place.descripcionS}} </ion-card-content>
-    <ion-button (click)="openMap(place.ubicacionS)" color="light">
-      <ion-icon name="location"></ion-icon>
+    <ion-card-content class="normal"> {{place.descripcionS}} </ion-card-content>
+    <ion-button  (click)="openMap(place.ubicacionS)" color="light">
+      <ion-icon color="warning" name="location"></ion-icon>
       Ver ubicación
     </ion-button>
   </ion-card>

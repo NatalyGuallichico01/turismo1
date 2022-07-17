@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController, ModalController } from '@ionic/angular';
+import { LoadingController, MenuController, ModalController, ToastController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { GooglemapsComponent } from 'src/app/googlemaps/googlemaps.component';
 import { Cliente } from 'src/app/models';
@@ -14,6 +14,9 @@ import { FirestoreService } from 'src/app/services/firestore.service';
   styleUrls: ['./perfil.component.scss'],
 })
 export class PerfilComponent implements OnInit {
+
+  loading: any;
+
   cliente: Cliente = {
     uid: '',
     email: '',
@@ -34,7 +37,9 @@ export class PerfilComponent implements OnInit {
     public firebaseauthService: FirebaseauthService,
     public firestoreService: FirestoreService,
     public firestorageService: FirestorageService,
-    private modalController: ModalController) {
+    private modalController: ModalController,
+    public loadingController: LoadingController,
+    public toastController: ToastController,) {
 
     this.firebaseauthService.stateAuth().subscribe(res => {
       console.log(res);
@@ -89,8 +94,11 @@ export class PerfilComponent implements OnInit {
     const credenciales = {
       email: this.cliente.email,
       password: this.cliente.celular,
+
     };
     const res = await this.firebaseauthService.registrar(credenciales.email, credenciales.password).catch(err => {
+      this.loading.dismiss();
+        this.presentToast('Guardado con éxito');
       console.log('error----', err);
     });
     //console.log(res);
@@ -127,6 +135,7 @@ export class PerfilComponent implements OnInit {
     const path = 'Usuarios';
     this.suscriberUserInfo= this.firestoreService.getDoc<Cliente>(path, uid).subscribe(res => {
       this.cliente = res;
+      this.presentToast('Ingreso con éxito');
     });
   }
 
@@ -136,6 +145,8 @@ export class PerfilComponent implements OnInit {
       password: this.cliente.celular,
     };
     this.firebaseauthService.login(credenciales.email, credenciales.password).then(res => {
+      this.loading.dismiss();
+
       console.log('Ingreso con exito');
     });
   }
@@ -163,6 +174,27 @@ export class PerfilComponent implements OnInit {
       console.log('this.cliente -> ', this.cliente);
     }
   } */
+
+
+  async presentLoading() {
+    this.loading = await this.loadingController.create({
+      cssClass: 'subtitulo',
+      message: 'Guardando...',
+      //duration: 2000
+    });
+    await this.loading.present();
+    //await loading.onDidDismiss();
+    //console.log('Loading dismissed!');
+  }
+  async presentToast(msg: string) {
+    const toast = await this.toastController.create({
+      cssClass: 'subtitulo',
+      message: msg,
+      duration: 2000,
+      color:'',
+    });
+    toast.present();
+  }
 
 
 }

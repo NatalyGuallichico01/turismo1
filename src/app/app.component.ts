@@ -13,6 +13,7 @@ import { request } from 'http';
 })
 export class AppComponent {
   admin= false;
+  propietario= false;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -35,8 +36,13 @@ export class AppComponent {
       if (res !== null){
         if (res.uid === 'WhFr0iuCLKherG2IN4PkJ4Mukrh1'){
           this.admin=true;
-        }else {
+        }else{
           this.admin= false;
+        }
+        if (res.uid === 'wHhJRik6tBP9O57e698iccAqA6u1'){
+          this.propietario=true;
+        }else {
+          this.propietario= false;
         }
       }else{
         this.admin=false;

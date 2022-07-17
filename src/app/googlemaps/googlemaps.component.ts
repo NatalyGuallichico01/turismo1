@@ -19,8 +19,8 @@ export class GooglemapsComponent implements OnInit {
 
   //coordenadas Quito
   @Input() position = {
-    lat: -0.33405,
-    lng: -78.45217
+    lat: -0.22985,
+    lng: -78.52495
   };
   label = {
     titulo: 'Ubicación',
@@ -51,14 +51,20 @@ export class GooglemapsComponent implements OnInit {
     });
   }
 
+
   initMap() {
+      /*  const position = {
+      lat: -0.33405,
+      lng: -78.45217
+    }; */
     const position = this.position;
+
     const latLng = new google.maps.LatLng(position.lat, position.lng);
     const mapOptions = {
       center: latLng,
       zoom: 15,
       disableDefaultUI: true,
-      clickableIcons: false,
+      clickableIcons: true,
     };
 
     this.map = new google.maps.Map(this.divMap.nativeElement, mapOptions);

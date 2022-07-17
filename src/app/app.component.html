@@ -22,10 +22,10 @@
           </ion-item>
         </ion-menu-toggle>
 
-        <ion-menu-toggle autoHide="false" *ngIf="!admin">
+        <ion-menu-toggle autoHide="false" *ngIf="!admin && !propietario">
           <ion-item button="true" detail="true"  [routerLink]="['/favoritos']">
             <ion-label class="normal"> Mis Favoritos</ion-label>
-            <ion-icon slot= 'start' name="heart-outline"></ion-icon>
+            <ion-icon class="icon" slot= 'start' name="heart-outline"></ion-icon>
           </ion-item>
         </ion-menu-toggle>
 
@@ -36,7 +36,7 @@
           </ion-item>
         </ion-menu-toggle>
 
-        <ion-menu-toggle autoHide="false">
+        <ion-menu-toggle autoHide="false" *ngIf="propietario">
           <ion-item button="true" detail="true"  [routerLink]="['/registrar-sitiosturisticos']">
             <ion-label class="normal">Registrar Sitios Turísticos</ion-label>
             <ion-icon slot= 'start' name="sunny-outline"></ion-icon>
@@ -44,7 +44,7 @@
           </ion-item>
         </ion-menu-toggle>
 
-        <ion-menu-toggle autoHide="false">
+        <ion-menu-toggle autoHide="false" *ngIf="!propietario && !admin">
           <ion-item button="true" detail="true"  [routerLink]="['/visitar-sitiosturisticos']">
             <ion-label class="normal">Visitar Sitios Turísticos</ion-label>
             <ion-icon slot= 'start' name="accessibility-outline"></ion-icon>

@@ -12,13 +12,14 @@ import { VisitarsitiosturisticosComponent } from './pages/visitarsitiosturistico
 
 
 const isAdmin= (next: any)=> map((user: any)=>!!user && 'WhFr0iuCLKherG2IN4PkJ4Mukrh1'===user.uid);
+const isPropietario = (next: any)=>map((user: any)=>!!user && 'wHhJRik6tBP9O57e698iccAqA6u1' ===user.uid);
 
 const routes: Routes = [
   {path: 'home', component:HomeComponent},
   {path: 'set-sitiosturisticos', component:SetSitiosturisticosComponent, ...canActivate(isAdmin)},
   {path: 'favoritos', component: FavoritosComponent},
   {path: 'perfil', component: PerfilComponent},
-  {path: 'registrar-sitiosturisticos', component: RegistrarsitiosturisticosComponent},
+  {path: 'registrar-sitiosturisticos', component: RegistrarsitiosturisticosComponent, ...canActivate(isPropietario)},
   {path: 'visitar-sitiosturisticos', component: VisitarsitiosturisticosComponent},
   {path: '', component:HomeComponent},
   {path: '**', redirectTo: 'home', pathMatch: 'full'},

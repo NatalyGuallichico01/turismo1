@@ -8,7 +8,6 @@ declare let google: any;
 })
 export class GooglemapsService {
 
-  //AIzaSyC8nH1azZFOEZ3_MySPZGYMbU1IM3y8Un8;>
   apiKey=environment.ApiKeyGoogleMaps;
   mapsLoaded=false;
 
